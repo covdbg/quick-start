@@ -25,3 +25,17 @@ To build the example application using Visual Studio:
 2. Build the project. `cmake --build build --config Debug`
 
 After this is done you should have `app.exe` and `app.pdb` in the `build/Debug` directory.
+
+## Running covdbg
+
+To collect coverage data while running your application, use the following command:
+
+```powershell
+covdbg --config .covdbg.yaml --output .\build\Debug\app.covdb .\build\Debug\app.exe
+```
+
+To convert the coverage data into the LCOV format for use with other tools, run:
+
+```powershell
+covdbg convert --format LCOV --input .\build\Debug\app.covdb --output .\build\Debug\app.lcov
+```
