@@ -21,8 +21,14 @@ For this example, we will use a sample application called `app.exe` with its cor
 
 To build the example application using Visual Studio:
 
-1. Configure the project with CMake. `cmake -S . -B build`
-2. Build the project. `cmake --build build --config Debug`
+1. Configure the project with CMake.
+```powershell
+cmake -S . -B build
+```
+2. Build the project. 
+```powershell 
+cmake --build build --config Debug
+```
 
 After this is done you should have `app.exe` and `app.pdb` in the `build/Debug` directory.
 
