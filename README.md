@@ -34,14 +34,12 @@ After this is done you should have `app.exe` and `app.pdb` in the `build/Debug` 
 
 ## Running covdbg
 
-To collect coverage data while running your application, use the following command:
-
+1. To collect coverage data while running your application, use the following command:
 ```powershell
 covdbg --config .covdbg.yaml --output .\build\Debug\app.covdb .\build\Debug\app.exe
 ```
 
-To convert the coverage data into the LCOV format for use with other tools, run:
-
+2. To convert the coverage data into the LCOV format for use with other tools, run:
 ```powershell
 covdbg convert --format LCOV --input .\build\Debug\app.covdb --output .\build\Debug\app.lcov
 ```
