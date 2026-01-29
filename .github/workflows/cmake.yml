@@ -34,6 +34,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+    - name: Setup covdbg
+      uses: covdbg/setup-covdbg@v1
+      with:
+        version: '1.0.0'
+
+    - name: Run covdbg
+      run: covdbg --version
+
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
       id: strings
