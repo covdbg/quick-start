@@ -62,3 +62,14 @@ jobs:
     - name: Build
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config ${{ matrix.build_type }}
+
+    - name: Run Coverage
+      run: |
+        covdbg --config .covdbg.yaml --output .\build\Debug\app.covdb .\build\Debug\app.exe
+        covdbg convert --format LCOV --input .\build\Debug\app.covdb --output .\build\Debug\app.lcov
+
+    - name: Upload Coverage Reports
+      uses: actions/upload-artifact@v6
+      with:
+        name: coverage-reports-${{ matrix.os }}-${{ matrix.c_compiler }}-${{ matrix.build_type }}
+        path: build/Debug/app.lcov
