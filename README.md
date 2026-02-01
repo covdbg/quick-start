@@ -6,7 +6,7 @@ Welcome to [covdbg](https://covdbg.com/)! This guide will help you get started w
 
 * Windows 10 (x64) or Windows 11
 * PDB files for your native applications (required for symbol resolution)
-* A covdbg license (via `COVDBG_LICENSE` or `COVDBG_LICENSE_FILE` environment variable)
+* A covdbg license (via `COVDBG_LICENSE` or `COVDBG_LICENSE_FILE` environment variable) or an open source project where `--fetch-license` can be used
 * covdbg installed (see Installation section below)
 
 ## Installation
@@ -37,6 +37,10 @@ After this is done you should have `app.exe` and `app.pdb` in the `build/Debug` 
 1. To collect coverage data while running your application, use the following command:
 ```powershell
 covdbg --config .covdbg.yaml --output .\build\Debug\app.covdb .\build\Debug\app.exe
+```
+If you are working on an open source project and do not have a license set up, you can use the `--fetch-license` option to automatically obtain a license:
+```powershell
+covdbg --fetch-license --config .covdbg.yaml --output .\build\Debug\app.covdb .\build\Debug\app.exe
 ```
 
 2. To convert the coverage data into the LCOV format for use with other tools, run:
