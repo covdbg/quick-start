@@ -37,7 +37,7 @@ jobs:
     - name: Setup covdbg
       uses: covdbg/setup-covdbg@v0
       with:
-        version: '1.0.0-beta.1+247'
+        version: '1.0.0-beta.254'
 
     - name: Run covdbg
       run: covdbg --version
@@ -66,8 +66,7 @@ jobs:
     - name: Run Coverage
       shell: pwsh
       run: |
-        $env:COVDBG_LICENSE = "${{ secrets.COVDBG_LICENSE }}"
-        covdbg --config .covdbg.yaml --output .\build\Debug\app.covdb .\build\Debug\app.exe
+        covdbg --fetch-license --config .covdbg.yaml --output .\build\Debug\app.covdb .\build\Debug\app.exe
         covdbg convert --format LCOV --input .\build\Debug\app.covdb --output .\build\Debug\app.lcov
 
     - name: Upload Coverage Reports
