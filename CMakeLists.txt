@@ -15,6 +15,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # Static runtime linking for all configurations
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
-add_executable(app
+add_executable(test_app
     src/main.cpp
 )
